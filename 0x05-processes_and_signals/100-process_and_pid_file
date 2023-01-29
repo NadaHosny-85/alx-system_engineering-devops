@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # script Creates the file /var/run/myscript.pid containing its PID, Displays To infinity and beyond indefinitely, Displays I hate the kill command when receiving a SIGTERM signal, Displays Y U no love me?! when receiving a SIGINT signal and Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
-sudo touch /var/run/holbertonscript.pid
-sudo bash -c "echo $$ > /var/run/holbertonscript.pid"
+sudo touch /var/run/myscript.pid
+sudo bash -c "echo $$ > /var/run/myscript.pid"
 
 trap interrup2 SIGINT
 trap interrup1 SIGTERM
@@ -10,7 +10,7 @@ trap interrup3 SIGQUIT
 
 interrup3()
 {
-    sudo rm /var/run/holbertonscript.pid
+    sudo rm /var/run/myscript.pid
     exit $?
 }
 
@@ -22,7 +22,7 @@ interrup2()
 interrup1()
 {
     echo "I hate the kill command"
-    sudo rm /var/run/holbertonscript.pid
+    sudo rm /var/run/myscript.pid
     exit $?
 }
 
